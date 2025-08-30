@@ -1,0 +1,11 @@
+{
+    "id": 3,
+    "title": "读完五本书",
+    "description": "既然买了微信读书会员，就看吧",
+    "status": "IN_PROGRESS",
+    "completedAt": null,
+    "bucketId": 2,
+    "createdAt": "2025-08-25 14:30:46",
+    "updatedAt": "2025-08-25 14:30:46",
+    "logs": []
+}

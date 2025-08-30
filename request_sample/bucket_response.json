@@ -1,0 +1,60 @@
+{
+    "id": 2,
+    "title": "2025要实现的愿望",
+    "description": "记录今年要实现的愿望清单",
+    "isPublic": false,
+    "userId": 3,
+    "createdAt": [
+        2025,
+        8,
+        25,
+        14,
+        28,
+        44,
+        25061000
+    ],
+    "updatedAt": [
+        2025,
+        8,
+        25,
+        14,
+        28,
+        44,
+        25109000
+    ],
+    "wishes": [
+        {
+            "id": 2,
+            "title": "减肥到60公斤",
+            "description": "只是毅力罢了，这辈子至少成功一次吧",
+            "status": "NOT_STARTED",
+            "completedAt": null,
+            "bucketId": 2,
+            "createdAt": "2025-08-25 14:30:06",
+            "updatedAt": "2025-08-25 14:30:06",
+            "logs": []
+        },
+        {
+            "id": 3,
+            "title": "读完五本书",
+            "description": "既然买了微信读书会员，就看吧",
+            "status": "NOT_STARTED",
+            "completedAt": null,
+            "bucketId": 2,
+            "createdAt": "2025-08-25 14:30:46",
+            "updatedAt": "2025-08-25 14:30:46",
+            "logs": []
+        },
+        {
+            "id": 4,
+            "title": "用ai搞出点什么",
+            "description": "1.想借助ai写一个愿望清单的项目，包括网页，安卓，和ios端的 2.学习coze，dify等工作流 3.深入了解ai工作原理",
+            "status": "NOT_STARTED",
+            "completedAt": null,
+            "bucketId": 2,
+            "createdAt": "2025-08-25 14:33:01",
+            "updatedAt": "2025-08-25 14:33:01",
+            "logs": []
+        }
+    ]
+}
