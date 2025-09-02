@@ -6,10 +6,16 @@ import BucketDetail from '../views/BucketDetail.vue';
 import Profile from '../views/Profile.vue';
 import Login from '../views/Auth/Login.vue';
 import Register from '../views/Auth/Register.vue';
+import Welcome from '../views/Welcome.vue';
 
 const routes = [
   {
     path: '/',
+    name: 'Welcome',
+    component: Welcome
+  },
+  {
+    path: '/app',
     component: MainLayout,
     children: [
       {

@@ -12,6 +12,8 @@ export const useAuthStore = defineStore('auth', {
       ? JSON.parse(localStorage.getItem('user')).username
       : null,
 
+    email: '',
+
     isAuthenticated: !!localStorage.getItem('user')
   }),
 
@@ -40,12 +42,22 @@ export const useAuthStore = defineStore('auth', {
         throw error;
       }
     },
+    
+    async updateProfile(userData) {
+      try {
+        const response = await authService.updateProfile(userData);
+        return response;
+      } catch (error) {
+        throw error;
+      }
+    },
 
     async fetchCurrentUser() {
       try {
         const user = await authService.getCurrentUser();
         this.user = user;
         this.isAuthenticated = true;
+        this.email = user.email;
         return user;
       } catch (error) {
         this.logout();
@@ -67,7 +79,8 @@ export const useAuthStore = defineStore('auth', {
     currentUsername: (state) => state.username,
     currentUser: (state) => ({
       id: state.userId,
-      name: state.username
+      name: state.username,
+      email: state.email
     }),
     loggedIn: (state) => state.isAuthenticated
   }

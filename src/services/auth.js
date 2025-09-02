@@ -19,6 +19,7 @@ const authService = {
              localStorage.setItem('user', JSON.stringify({
           userId: response.data.userId,
           username: response.data.username
+          
         }));
       return response.data;
     } catch (error) {
@@ -40,6 +41,14 @@ const authService = {
     }
   },
 
+  updateProfile: async (userData) => {
+    try {
+      const response = await api.put('/auth/profile', userData);
+      return response.data;
+    } catch (error) {
+      throw error.response.data;
+    }
+  },
   isAuthenticated: () => {
     return !!localStorage.getItem('auth_token');
   }

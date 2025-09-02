@@ -162,7 +162,7 @@ const createBucket = async () => {
 
 <style scoped>
 .dashboard {
-  max-width: 1200px;
+  max-width: 700px;
   margin: 0 auto;
   padding: 20px;
 }

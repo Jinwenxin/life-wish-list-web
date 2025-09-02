@@ -3,7 +3,7 @@
     <header class="header">
       <div class="logo">人生愿望清单</div>
       <nav class="nav">
-        <router-link to="/">首页</router-link>
+        <router-link to="/">欢迎页</router-link>
         <router-link to="/buckets">我的愿望</router-link>
         <router-link to="/profile">个人中心</router-link>
       </nav>
@@ -45,6 +45,13 @@ const handleLogout = () => {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-image: url('/inside.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
 }
 
 .header {
@@ -110,6 +117,12 @@ const handleLogout = () => {
 .main-content {
   flex: 1;
   padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 8px;
+  margin: 2rem auto;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  width: 80%;
 }
 
 .footer {

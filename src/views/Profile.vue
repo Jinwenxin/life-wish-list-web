@@ -72,7 +72,9 @@ import { ref, computed, onMounted } from 'vue';
 import { useAuthStore } from '../store/auth';
 import { useBucketStore } from '../store/bucket';
 import StatCard from '../components/StatCard.vue';
+import { useRouter } from 'vue-router';
 
+const router = useRouter();
 const authStore = useAuthStore();
 const bucketStore = useBucketStore();
 const showUpdateModal = ref(false);
@@ -83,6 +85,7 @@ const updatedUser = ref({
 
 onMounted(async () => {
   await bucketStore.fetchBuckets();
+  await authStore.fetchCurrentUser();
   updatedUser.value = {
     username: authStore.currentUser?.name || '',
     email: authStore.currentUser?.email || ''
@@ -96,13 +99,33 @@ const userInitials = computed(() => {
 
 const completedWishes = computed(() => {
   return bucketStore.buckets.reduce((total, bucket) => {
-    return total + (bucket.completedCount || 0);
+    // 确保 bucket.wishes 存在且是数组
+    if (!bucket.wishes || !Array.isArray(bucket.wishes)) {
+      return total;
+    }
+    
+    // 计算当前 bucket 中已完成的愿望数量
+    const completedInBucket = bucket.wishes.filter(
+      wish => wish.status === 'COMPLETED'
+    ).length;
+    
+    return total + completedInBucket;
   }, 0);
 });
 
 const pendingWishes = computed(() => {
   return bucketStore.buckets.reduce((total, bucket) => {
-    return total + ((bucket.wishCount || 0) - (bucket.completedCount || 0));
+    // 确保 bucket.wishes 存在且是数组
+    if (!bucket.wishes || !Array.isArray(bucket.wishes)) {
+      return total;
+    }
+    
+    // 计算当前 bucket 中进行中的愿望数量
+    const inProgressWishes = bucket.wishes.filter(
+      wish => wish.status === 'IN_PROGRESS'
+    ).length;
+    
+    return total + inProgressWishes;
   }, 0);
 });
 
@@ -111,9 +134,19 @@ const formatDate = (dateString) => {
   return new Date(dateString).toLocaleDateString();
 };
 
+const buildFullUserData = () => {
+  return {
+    id: authStore.currentUser.id,
+    ...updatedUser.value
+  }
+}
+
 const updateProfile = async () => {
   try {
-    await authStore.updateProfile(updatedUser.value);
+    const userData = buildFullUserData();
+    console.log('updating profile', userData);
+  
+    await authStore.updateProfile(userData);
     showUpdateModal.value = false;
   } catch (error) {
     console.error('Error updating profile:', error);
@@ -122,6 +155,7 @@ const updateProfile = async () => {
 
 const logout = () => {
   authStore.logout();
+  router.push('/login');
 };
 </script>
 

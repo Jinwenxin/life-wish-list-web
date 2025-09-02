@@ -1,5 +1,7 @@
 <template>
+  <div id="app">
   <router-view />
+  </div>
 </template>
 
 <script setup>
@@ -24,13 +26,14 @@ onMounted(async () => {
 <style>
 @import './style.css';
 
-#app {
+/* #app {
   font-family: 'Helvetica Neue', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   min-height: 100vh;
-}
+  max-width: 1200px;
+} */
 
 /* Global button styles */
 button {

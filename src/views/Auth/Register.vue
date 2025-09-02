@@ -104,16 +104,25 @@ const register = async () => {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f7fafc;
+  background-image: url('/inside.png');
+  background-size: cover;
+  background-position: center;
+  padding: 2rem;
 }
 
 .auth-card {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.85);
   border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 40px;
-  width: 100%;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.auth-form {
   max-width: 400px;
+  margin: 0 auto;
 }
 
 h1 {
@@ -135,10 +144,12 @@ h1 {
 
 .form-group input {
   width: 100%;
+  max-width: 400px;
   padding: 12px;
   border: 1px solid #e2e8f0;
   border-radius: 4px;
   font-size: 1rem;
+  margin: 0 auto;
 }
 
 .form-group input:focus {
